@@ -16,10 +16,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
 # Install Azure CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
-# HACK: Pin to specific version due to issues with latest version in USGov. See: https://github.com/Azure/azure-cli/issues/23985#issue-1383263012
-RUN apt-get update \ 
-    && AZ_DIST=$(lsb_release -cs) \
-    && apt-get install -y --allow-downgrades azure-cli=2.78.0-1~${AZ_DIST}
+# # HACK: Pin to specific version due to issues with latest version in USGov. See: https://github.com/Azure/azure-cli/issues/23985#issue-1383263012
+# RUN apt-get update \ 
+#     && AZ_DIST=$(lsb_release -cs) \
+#     && apt-get install -y --allow-downgrades azure-cli=2.78.0-1~${AZ_DIST}
 
 # Install Docker CLI
 RUN apt-get update && \
